@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+<div class="logged-in-box auth0-box logged-in">
+    <img class="avatar" src="{{ auth0User.extra_data.picture }}"/>
+</div>
+	  <a class="add-button" href="{% url 'add_quote' %}">Write</a>
+	  <br /><br /><br /><br />
+	 <br /><br /><br />
+<ul>
+	<div class="quote-card">
+		<li id="quotelist">{{ quote.quote }}</li>
+		<p id="quoteauth"> Written by - {{ quote.author }}</p>
+				  <p id="quoteauth">- {{ quote.created|date:'d F-Y' }} </p>
+		{% if quote.author == request.user %}
+		<button type="button" class="btn btn-secondary" ><a href="{% url 'update_quote' object.pk %}">Edit</a></button>
+			  <button type="button" class="btn btn-danger"><a href="{% url 'delete_quote' object.pk %}">Delete</a></button>
+		  {% endif %}
+		<form action="{% url 'like_quote' quote.id %}" method="POST">
+			      {% csrf_token %}
+			      {% if user.is_authenticated %}
+				      <button id="like" type="submit",name="quote_id", value="{{ quote.id }}" ><img id="like" src="{% static 'img/like.png' %}" width="35px" height="35px"></button>
+			      {% endif %}
+		</form>
+				      <p id="likecount"> {{ total_likes }} Likes</p>
+	</div>
+</ul>
+{% endblock %}

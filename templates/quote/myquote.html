@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block body %}
+{% load static %}
+<div class="logged-in-box auth0-box logged-in">
+    <img class="avatar" src="{{ auth0User.extra_data.picture }}"/>
+</div>
+	  <a class="add-button" href="{% url 'add_quote' %}">Write</a>
+	  <br /><br /><br /><br />
+	 <br /><br /><br />
+<h3 id="author"> Author: {{ request.user.username }}</h3>
+<ul>
+	{% for quotes in object_list %}
+		{% if quotes.author == request.user %}
+			  <div class="quote-card">
+				  <li ><a id="quotelist" href="{% url 'quote' quotes.pk %}" >"{{ quotes.quote }}"</a></li> 
+				  <p id="quoteauth">- {{ quotes.created|date:'d F-Y' }} </p>
+				  <button type="button" class="btn btn-secondary" ><a href="{% url 'update_quote' quotes.pk %}">Edit</a></button>
+				  <button type="button" class="btn btn-danger"><a href="{% url 'delete_quote' quotes.pk %}">Delete</a></button>
+
+		<form action="{% url 'like_quote' quotes.id %}" method="POST">
+			      {% csrf_token %}
+			      {% if user.is_authenticated %}
+				      <button id="like" type="submit",name="quote_id", value="{{ quote.id }}" ><img id="like" src="{% static 'img/like.png' %}" width="35px" height="35px"></button>
+			      {% endif %}
+		</form>
+				      <p id="likecount"> {{ quotes.total_likes }} Likes</p>
+			  </div>
+			  <br />
+			  <br />
+		{% endif %}
+	{% endfor %}
+</ul>
+{% endblock %}

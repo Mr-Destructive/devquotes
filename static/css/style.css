@@ -1,0 +1,261 @@
+:root
+{
+	--quote-font:'Patua One', cursive;
+	--global-font:'Montserrat Alternates', sans-serif;
+	--oneon:#ff6600;
+	--grey:#6f7175;
+}
+.btn-toggle
+{
+	z-index:6;
+	position:absolute;
+	top:20%;
+}
+@media (prefers-color-scheme: dark) {
+  /* defaults to dark theme */
+  body {
+  --text-color: white;
+  --bkg-color: #00003f;
+  --quote-bg:#090021;
+  --quote-fg:#03f4fc;
+  --post-bg:black;
+  --post-fg:var(--oneon);
+  --nav-bg: black;
+  --nav-fg: white;
+
+  }
+  body.light-theme {
+  --text-color: black;
+  --bkg-color: #f3ffff;
+  --quote-bg: #f0f0f0;
+  --quote-fg:#0a1140;
+  --post-bg:white;
+  --post-fg:black;
+  --nav-bg:var(--grey);
+  --nav-fg: black;
+  }
+}
+
+* {
+	font-family: var(--global-font);
+}
+
+body {
+  background: var(--bkg-color);
+}
+
+nav, .mr-4{
+	background-color:var(--nav-bg);
+	color:var(--nav-fg);
+	z-index:3;
+}
+
+a, a:hover
+{
+	text-decoration:none;
+}
+.add-button
+{
+	position:absolute;
+	margin-left:auto;
+	margin-right:auto;
+	left:70%;
+	top:23%;
+	background-color:var(--oneon);
+	color:var(--bkg-color);
+	padding:1% 1%;
+	width: 140px;
+	height:70px;
+	border: 2px solid var(--text-color);
+	border-radius: 7%;
+	text-align:center;
+	font-weight: 1000;
+	font-size:37px;
+}
+
+.add-button:hover{
+
+	color:var(--oneon);
+	background-color:var(--sec);
+}
+
+#quotelist
+{
+font-family: var(--quote-font);
+	font-weight: 900;
+	font-size: 250%;
+}
+#quotelist 
+{
+	color:var(--quote-fg) ;
+}
+#quotelist:hover
+{
+	text-decoration:none;
+	color:var(--oneon);
+}
+#quoteauth
+{
+	font-size:30px;
+	font-weight:1000;
+	text-align:right;
+	padding:0 15px;
+	font-family: 'Montserrat Alternates', sans-serif;
+	color:var(--text-color);
+}
+#quoteauth > a
+{
+	color:var(--oneon);
+}
+
+
+.quote-card
+{
+	width:75%;
+	position:relative;
+	left:10%;
+	top:50%;
+	text-align:center;
+	background-color:var(--quote-bg);
+	border-radius:2%;
+	border: 2px solid red;
+	padding: 10px;
+	border-radius: 30px 30px;
+}
+.quote-card > li
+{
+	list-style-type:none;
+	transition: font-size 1.5s;
+}
+.quote-card > .btn-danger, 
+.quote-card > .btn-secondary 
+{
+	position:relative;
+	font-family: 'Montserrat Alternates', sans-serif;
+	font-size: 120%;
+}
+.quote-card:hover #quotelist 
+{
+	text-decoration:none;
+	color:var(--oneon);
+}
+.quote-card>li:hover
+{
+	font-size:104%;
+}
+
+#like, #like:focus, #like:hover
+{
+	outline:none;
+	background-color:var(--quote-bg);
+	border: 0;
+	background: none;
+	box-shadow: none;
+}
+#likecount
+{
+	color:var(--quote-fg);
+}
+
+.mb-3
+{
+	top:25%;
+	position:absolute;
+	font-size: 30px;
+	width:55%;
+	left:20%;
+	color:var(--text-color);
+}
+.form-control
+{
+	background-color: var(--post-bg);
+	color:var(--post-fg);
+	font-weight:900;
+	font-size: 35px;
+}
+.form-control:focus
+{
+	background-color: var(--post-bg);
+	color:var(--post-fg);
+}
+#author
+{
+	color:var(--text-color);
+	text-align:center;
+	font-size: 250%;
+	padding-bottom:25px;
+
+}
+#edel
+{
+	color:white;
+	font-size:40%;
+}
+.switch {
+        position: absolute;
+        top:35%;
+	left:70%;
+	z-index:5;
+  	display: inline-block;
+  	width: 60px;
+  	height: 34px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+	border: 0.5px solid white;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: var(--oneon);
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: black;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px white;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+.navb, .nav.bar, .navbar-brand, .mr-auto
+{
+	color:var(--nav-fg);
+	font-weight:900;
+}
