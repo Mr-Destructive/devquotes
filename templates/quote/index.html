@@ -12,10 +12,11 @@
 	<div class="quote-card">
 		<li id="quotelist">{{ quote.quote }}</li>
 		<p id="quoteauth"> Written by - {{ quote.author }}</p>
-				  <p id="quoteauth">- {{ quote.created|date:'d F-Y' }} </p>
+				  <p id="quoteauth">Created - {{ quote.created|date:'d F-Y' }} </p>
+					<p id="quoteauth">Updated - {{ quote.updated|date:'d F-Y'}} </p>
 		{% if quote.author == request.user %}
-		<button type="button" class="btn btn-secondary" ><a href="{% url 'update_quote' object.pk %}">Edit</a></button>
-			  <button type="button" class="btn btn-danger"><a href="{% url 'delete_quote' object.pk %}">Delete</a></button>
+		<button type="button" class="btn btn-secondary" ><a id="updel" href="{% url 'update_quote' object.pk %}">Edit</a></button>
+			  <button type="button" class="btn btn-danger" ><a id="updel" href="{% url 'delete_quote' object.pk %}">Delete</a></button>
 		  {% endif %}
 		<form action="{% url 'like_quote' quote.id %}" method="POST">
 			      {% csrf_token %}

@@ -104,7 +104,7 @@ font-family: var(--quote-font);
 }
 #quoteauth
 {
-	font-size:30px;
+	font-size:20px;
 	font-weight:1000;
 	text-align:right;
 	padding:0 15px;
@@ -194,7 +194,7 @@ font-family: var(--quote-font);
 	padding-bottom:25px;
 
 }
-#edel
+#updel
 {
 	color:white;
 	font-size:40%;
