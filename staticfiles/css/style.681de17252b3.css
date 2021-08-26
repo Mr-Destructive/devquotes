@@ -7,11 +7,21 @@
 }
 .btn-toggle
 {
-	z-index:6;
+	z-index:5;
 	position:absolute;
 	top:20%;
 }
-@media (prefers-color-scheme: dark) {
+body {
+	--text-color: black;
+	--bkg-color: #f3ffff;
+	--quote-bg: #f0f0f0;
+	--quote-fg:#0a1140;
+	--post-bg:white;
+	--post-fg:black;
+	--nav-bg:var(--grey);
+	--nav-fg: black;
+	}
+@media(prefers-color-scheme: dark){
   /* defaults to dark theme */
   body {
   --text-color: white;
@@ -25,29 +35,27 @@
 
   }
   body.light-theme {
-  --text-color: black;
-  --bkg-color: #f3ffff;
-  --quote-bg: #f0f0f0;
-  --quote-fg:#0a1140;
-  --post-bg:white;
-  --post-fg:black;
-  --nav-bg:var(--grey);
-  --nav-fg: black;
-  }
+	--text-color: black;
+	--bkg-color: #f3ffff;
+	--quote-bg: #f0f0f0;
+	--quote-fg:#0a1140;
+	--post-bg:white;
+	--post-fg:black;
+	--nav-bg:var(--grey);
+	--nav-fg: black;
+	}
 }
 
 * {
 	font-family: var(--global-font);
 }
-
-body {
-  background: var(--bkg-color);
+body{
+	color:var(--text-color);
+	background-color: var(--bkg-color);
 }
-
-nav, .mr-4{
+nav{
 	background-color:var(--nav-bg);
-	color:var(--nav-fg);
-	z-index:3;
+	color:black;
 }
 
 a, a:hover
