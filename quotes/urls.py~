@@ -14,5 +14,5 @@ urlpatterns = [
         path('like/<int:pk>/', LikeView, name='like_quote'),
         path('home/like/<int:pk>/', HomeLikeView, name='home_like'),
         path('author/<int:pk>/', ProfileView.as_view(), name='profile'),
-        path('about/', TemplateView.as_view(template_name="quote/about.html"),name='about'),
+        path('about/', TemplateView.as_view(template_name="quote/about.html")),
 ]
