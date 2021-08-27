@@ -293,7 +293,8 @@ footer a
 {
 	text-align:center;
 	font-size:90%;
-	color:#ff6600;
+	font-weight:900;
+	color:var(--oneon);
 	padding-left:20px;
 }
 
